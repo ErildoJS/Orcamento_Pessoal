@@ -22,16 +22,20 @@ class Despesa {
 
 class Bd {
   constructor() {
-    //10
-    let id = localStorage.getItem('id')
+    //10 - criando um id incial------------- (important)
+    let id = localStorage.getItem('id')//verificando se esse id existe
 
-    if(id === null) {
-      localStorage.setItem('id', 0)
+    if(id === null) { //se o id nao existir
+
+      localStorage.setItem('id', 0)//setamos o id incial com sendo zero(0)
     }
   }
-
+  //metodo para primeiro verificar se existi um id dentro de localstorage
   getProximoId() {// 8- 
+    //pegando o id que vem por padrao 
     let proximoId = localStorage.getItem('id')
+
+    //e somando + 1
     return parseInt(proximoId) + 1
   }
 
@@ -39,6 +43,8 @@ class Bd {
     let id = this.getProximoId()//9
     
     localStorage.setItem(id, JSON.stringify(d))
+
+    //pegando o valor do id e atribuindo no ja existente
     localStorage.setItem('id',id)
 
   }
